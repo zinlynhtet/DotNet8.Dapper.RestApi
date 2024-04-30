@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.34707.107
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Dapper.RestApi", "DotNet8.Dapper.RestApi\DotNet8.Dapper.RestApi.csproj", "{57C3C87F-FAB5-4CB1-B382-65A684F98D91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Dapper.RestApi.DbService", "DotNet8.Dapper.RestApi.DbService\DotNet8.Dapper.RestApi.DbService.csproj", "{113BD884-15B6-4B80-BAAE-3B44FE33A6EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{57C3C87F-FAB5-4CB1-B382-65A684F98D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57C3C87F-FAB5-4CB1-B382-65A684F98D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57C3C87F-FAB5-4CB1-B382-65A684F98D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{113BD884-15B6-4B80-BAAE-3B44FE33A6EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113BD884-15B6-4B80-BAAE-3B44FE33A6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113BD884-15B6-4B80-BAAE-3B44FE33A6EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113BD884-15B6-4B80-BAAE-3B44FE33A6EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
