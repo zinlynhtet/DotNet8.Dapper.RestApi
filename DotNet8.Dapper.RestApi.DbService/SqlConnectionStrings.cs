@@ -1,6 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-
-namespace DotNet8.Dapper.RestApi.DbService;
+﻿namespace DotNet8.Dapper.RestApi.DbService;
 
 public static class SqlConnectionStrings
 {
