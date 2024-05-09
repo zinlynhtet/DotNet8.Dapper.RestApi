@@ -5,7 +5,9 @@
 public class DapperController : BaseController
 {
     private readonly IApplication _application;
+    public DapperController(IApplication application) => _application = application ?? throw new ArgumentNullException(nameof(application));
 
+    [HttpGet]
     public async Task<IActionResult> Get()
     {
         try
@@ -19,6 +21,7 @@ public class DapperController : BaseController
         }
     }
 
+    [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
         try
@@ -33,6 +36,7 @@ public class DapperController : BaseController
         }
     }
 
+    [HttpPost]
     public async Task<IActionResult> Create(BlogDataModel reqModel)
     {
         try
@@ -47,6 +51,7 @@ public class DapperController : BaseController
         }
     }
 
+    [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, BlogDataModel reqModel)
     {
         try
@@ -61,6 +66,7 @@ public class DapperController : BaseController
         }
     }
 
+    [HttpPatch("{id}")]
     public async Task<IActionResult> Patch(int id, BlogDataModel reqModel)
     {
         try
@@ -75,6 +81,7 @@ public class DapperController : BaseController
         }
     }
 
+    [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
         try
