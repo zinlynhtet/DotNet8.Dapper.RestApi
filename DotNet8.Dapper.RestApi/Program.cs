@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<DapperServices>();
-builder.Services.AddScoped<Application>();
+builder.Services.AddScoped<IApplication, Application>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
