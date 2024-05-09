@@ -29,25 +29,25 @@ public static class Queries
         return query;
     }
 
-    public static string Conditions(int id, BlogDataModel reqModel, List<AdoDotNetParameter> parameters)
+    public static string Conditions(int id, BlogDataModel reqModel, List<DapperParameters> parameters)
     {
         var conditions = string.Empty;
         if (!string.IsNullOrEmpty(reqModel.BlogTitle))
         {
             conditions += " [BlogTitle] = @BlogTitle, ";
-            parameters.Add(new AdoDotNetParameter("@BlogTitle", reqModel.BlogTitle));
+            parameters.Add(new DapperParameters("@BlogTitle", reqModel.BlogTitle));
         }
 
         if (!string.IsNullOrEmpty(reqModel.BlogAuthor))
         {
             conditions += " [BlogAuthor] = @BlogAuthor, ";
-            parameters.Add(new AdoDotNetParameter("@BlogAuthor", reqModel.BlogAuthor));
+            parameters.Add(new DapperParameters("@BlogAuthor", reqModel.BlogAuthor));
         }
 
         if (!string.IsNullOrEmpty(reqModel.BlogContent))
         {
             conditions += " [BlogContent] = @BlogContent, ";
-            parameters.Add(new AdoDotNetParameter("@BlogContent", reqModel.BlogContent));
+            parameters.Add(new DapperParameters("@BlogContent", reqModel.BlogContent));
         }
 
         if (conditions.Length == 0)
@@ -55,24 +55,10 @@ public static class Queries
             throw new Exception("Invalid conditions");
         }
 
-        parameters.Add(new AdoDotNetParameter("@BlogId", id));
+        parameters.Add(new DapperParameters("@BlogId", id));
         conditions = conditions.Substring(0, conditions.Length - 2);
         return conditions;
     }
 
-    public class AdoDotNetParameter
-    {
-        public AdoDotNetParameter()
-        {
-        }
 
-        public AdoDotNetParameter(string name, object value)
-        {
-            Name = name;
-            Value = value;
-        }
-
-        public string Name { get; set; }
-        public Object Value { get; set; }
-    }
 }
