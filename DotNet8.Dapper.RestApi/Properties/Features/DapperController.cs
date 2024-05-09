@@ -4,33 +4,88 @@
 [ApiController]
 public class DapperController : BaseController
 {
+    private readonly IApplication _application;
+
     public async Task<IActionResult> Get()
     {
-        return Ok();
+        try
+        {
+            var list = await _application.GetBlogs();
+            return Ok(list);
+        }
+        catch (Exception ex)
+        {
+            return InternalSeverError(ex);
+        }
     }
 
     public async Task<IActionResult> GetById(int id)
     {
-        return Ok();
+        try
+        {
+            var item = await _application.GetBlogById(id);
+            if (item is null) return NotFound("No Data Found.");
+            return Ok(item);
+        }
+        catch (Exception ex)
+        {
+            return InternalSeverError(ex);
+        }
     }
 
     public async Task<IActionResult> Create(BlogDataModel reqModel)
     {
-        return Ok();
+        try
+        {
+            var item = await _application.CreateBlog(reqModel);
+            var message = item > 0 ? "Saving Successful." : "Saving Failed";
+            return Ok(message);
+        }
+        catch (Exception ex)
+        {
+            return InternalSeverError(ex);
+        }
     }
 
     public async Task<IActionResult> Put(int id, BlogDataModel reqModel)
     {
-        return Ok();
+        try
+        {
+            var item = await _application.PutBlog(id, reqModel);
+            var message = item > 0 ? "Updating Successful." : "Updating Failed";
+            return Ok(message);
+        }
+        catch (Exception ex)
+        {
+            return InternalSeverError(ex);
+        }
     }
 
     public async Task<IActionResult> Patch(int id, BlogDataModel reqModel)
     {
-        return Ok();
+        try
+        {
+            var item = await _application.PatchBlog(id, reqModel);
+            var message = item > 0 ? "Updating Successful." : "Updating Failed";
+            return Ok(message);
+        }
+        catch (Exception ex)
+        {
+            return InternalSeverError(ex);
+        }
     }
 
     public async Task<IActionResult> Delete(int id)
     {
-        return Ok();
+        try
+        {
+            var item = await _application.DeleteBlog(id);
+            var message = item > 0 ? "Updating Successful." : "Updating Failed";
+            return Ok(message);
+        }
+        catch (Exception ex)
+        {
+            return InternalSeverError(ex);
+        }
     }
 }
