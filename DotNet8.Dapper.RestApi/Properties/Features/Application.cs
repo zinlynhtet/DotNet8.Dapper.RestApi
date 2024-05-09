@@ -1,8 +1,9 @@
 ﻿namespace DotNet8.Dapper.RestApi.Properties.Features;
 
-public class Application
+public class Application : IApplication
 {
-    private readonly DapperServices _dapperServices;
+    private readonly DapperServices _dapperServices =
+        new DapperServices(SqlConnectionStrings.connectionString.ConnectionString);
 
     public Application(DapperServices dapperServices) => _dapperServices = dapperServices;
 
@@ -55,7 +56,7 @@ public class Application
         return result;
     }
 
-    private async Task<BlogDataModel>? FindById(int id)
+    public async Task<BlogDataModel>? FindById(int id)
     {
         var query = Queries.GetByIdQuery;
         var item = _dapperServices.QueryFirstOrDefault<BlogDataModel>(query, new BlogDataModel { BlogId = id });
