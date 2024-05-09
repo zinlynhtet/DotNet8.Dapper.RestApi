@@ -16,10 +16,17 @@ public class Application
         return lst;
     }
 
-    public async Task<BlogDataModel> GetBlogById()
+    public async Task<BlogDataModel> GetBlogById(int id)
     {
-        var query = Queries.GetByIdQuery;
-        var item = _dapperServices.QueryFirstOrDefault<BlogDataModel>(query);
+        var item = await FindById(id);
         return item;
     }
+
+    private async Task<BlogDataModel>? FindById(int id)
+    {
+        var query = Queries.GetByIdQuery;
+        var item = _dapperServices.QueryFirstOrDefault<BlogDataModel>(query, new BlogDataModel { BlogId = id });
+        return item;
+    }
+    
 }
