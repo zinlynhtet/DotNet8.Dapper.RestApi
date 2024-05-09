@@ -59,6 +59,4 @@ public static class Queries
         conditions = conditions.Substring(0, conditions.Length - 2);
         return conditions;
     }
-
-
 }
