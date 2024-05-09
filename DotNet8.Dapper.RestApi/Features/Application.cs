@@ -1,12 +1,12 @@
-﻿namespace DotNet8.Dapper.RestApi.Properties.Features;
+﻿using DotNet8.Dapper.RestApi.DbService.Services;
+
+namespace DotNet8.Dapper.RestApi.Properties.Features;
 
 public class Application : IApplication
 {
     private readonly DapperServices _dapperServices =
         new DapperServices(SqlConnectionStrings.connectionString.ConnectionString);
-
-    public Application(DapperServices dapperServices) => _dapperServices = dapperServices;
-
+    
     public async Task<List<BlogDataModel>> GetBlogs()
     {
         var query = Queries.GetAllQuery;
