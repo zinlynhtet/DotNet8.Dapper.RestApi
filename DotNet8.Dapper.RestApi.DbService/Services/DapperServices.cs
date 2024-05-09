@@ -1,6 +1,6 @@
-﻿namespace DotNet8.Dapper.RestApi.DbService;
+﻿namespace DotNet8.Dapper.RestApi.DbService.Services;
 
-public class DapperServices : IDapperServices
+public class DapperServices
 {
     private readonly string _connection;
 
